@@ -1,0 +1,86 @@
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 10%;
+        font-family: 'Open Sans', sans-serif;
+        background: #6b66b8;
+        color: #fff;
+        font-size: 28px;
+        text-align: center;
+        letter-spacing: 1.2px;
+
+    }
+</style>
+<style>
+    #ip4 {
+        border-radius: 15px 50px 30px;
+        border: 2px solid #609;
+        padding: 20px;
+        width: 300px;
+        height: 15px;
+    }
+</style>
+
+<body>
+    <div>
+        <!--navbar portion-->
+        <nav class="navbar navbar-expand-sm bg-dark fixed-top">
+            <!-- <a class="navbar-brand" href="#"><b>Bike Sharing Demand Prediction</b></a> -->
+            <a class="navbar-brand" href="#"><b>
+                    <!-- <font size="2">BY DHEERAJ KUMAR</font> -->
+                </b></a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                </li>
+            </ul>
+        </nav>
+        <br>
+    </div>
+
+    <body>
+        <br>
+        <div class="login">
+            <!-- <h1>Bike Sharing Demand Prediction</h1> -->
+            <!-- Main Input For Receiving Query to our ML -->
+            <form action="{{ url_for('predict')}}" method="post">
+                <input type="text" name="year" placeholder="year" required="required" id="ip4" />
+                <input type="text" name="month" placeholder="month" required="required" id="ip4" />
+                <input type="text" name="holiday" placeholder="holiday" required="required" id="ip4" />
+                <input type="text" name="weekday" placeholder="weekday" required="required" id="ip4" />
+                <input type="text" name="working day" placeholder="working day" required="required" id="ip4" />
+                <input type="text" name="weathersit" placeholder="weathersit" required="required" id="ip4" />
+                <input type="text" name="temp" placeholder="temp" required="required" id="ip4" />
+                <input type="text" name="atemp" placeholder="atemp" required="required" id="ip4" />
+                <input type="text" name="hum" placeholder="hum" required="required" id="ip4" />
+                <input type="text" name="windspread" placeholder="windspread" required="required" id="ip4" />
+                <input type="text" name="registred" placeholder="registred" required="required" id="ip4" />
+                <input type="text" name="hr" placeholder="hr" required="required" id="ip4" />
+                <br>
+                <br>
+                <input type="submit" class="btn-primary" value="predict">
+            </form>
+            <br>
+            <br>
+            {{ prediction_text }}
+        </div>
+    </body>
+
+</html>
